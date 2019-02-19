@@ -93,7 +93,7 @@ class NicePayV2TestCase(unittest.TestCase):
         response = self.nicepay.request_payment(**request_data)
         if self.show_print:
             print(response)
-        self.assertTrue(isinstance(response, str))
+        self.assertTrue(isinstance(response, dict))
 
     def test_installment(self):
         request_data = {'timeStamp': '20180109181300',

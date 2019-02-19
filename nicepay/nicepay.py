@@ -39,12 +39,14 @@ class NicePay(object):
                    'Content-Type': 'application/json'}
         response = requests.post(self.api_url, headers=headers,
                                  data=json.dumps(kwargs))
+        response_data = {}
 
         if to_json:
             response_data = response.json()
             response_data['status_code'] = response.status_code
         else:
-            response_data = response.text
+            response_data['content'] = response.content
+            response_data['status_code'] = response.status_code
         return response_data
 
     @property
