@@ -41,4 +41,4 @@ To run the test use:
   :target: https://raw.githubusercontent.com/titipbeliin/nicepay-python-enterprise/master/LICENSE
 
 .. |build status| image:: https://travis-ci.org/titipbeliin/nicepay-python-enterprise.svg?branch=master
-   :target: https://travis-ci.org/agusmakmun/changewords
+   :target: https://travis-ci.org/titipbeliin/nicepay-python-enterprise
