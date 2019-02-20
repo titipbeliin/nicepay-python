@@ -31,6 +31,9 @@ class NicePayV2TestCase(unittest.TestCase):
         request_data = {
             'timeStamp': '20180109181300',
             'payMethod': '02',
+            'bankCd': 'BMRI',
+            'vacctValidDt': '20180112',
+            'vacctValidTm': '235959',
             'currency': 'IDR',
             'amt': '10000',
             'referenceNo': 'ADETEST02',

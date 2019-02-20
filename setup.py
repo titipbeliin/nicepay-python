@@ -4,7 +4,7 @@
 import os
 from setuptools import setup
 
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 __author__ = 'Agus Makmun (Summon Agus)'
 __author_email__ = 'summon.agus@gmail.com'
 
@@ -13,8 +13,8 @@ setup(
     packages=['nicepay'],
     version=__version__,
     platforms=['Linux'],
-    url='https://github.com/titipbeliin/nicepay/',
-    download_url='https://github.com/titipbeliin/nicepay/tarball/v%s' % __version__,
+    url='https://github.com/titipbeliin/nicepay-python-enterprise/',
+    download_url='https://github.com/titipbeliin/nicepay-python-enterprise/tarball/v%s' % __version__,
     description="Python API for nicepay.",
     long_description=open("README.rst").read(),
     license='MIT',
