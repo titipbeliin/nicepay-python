@@ -2,7 +2,7 @@
 nicepay
 ===================
 
-|pypi version| |license|
+|pypi version| |license| |build status|
 
 ``NICEPay`` Payment Solution is a product of PT IONPAY NETWORKS that provide
 various electronic payment over the Internet safely without separate security device.
@@ -38,4 +38,7 @@ To run the test use:
    :target: https://pypi.python.org/pypi/nicepay
 
 .. |license| image:: https://img.shields.io/badge/license-MIT-green.svg
-  :target: https://raw.githubusercontent.com/agusmakmun/djipsum/master/LICENSE
+  :target: https://raw.githubusercontent.com/titipbeliin/nicepay-python-enterprise/master/LICENSE
+
+.. |build status| image:: https://travis-ci.org/titipbeliin/nicepay-python-enterprise.svg?branch=master
+   :target: https://travis-ci.org/agusmakmun/changewords
