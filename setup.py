@@ -4,12 +4,12 @@
 import os
 from setuptools import setup
 
-__version__ = '1.0.5'
+__version__ = '1.0.6'
 __author__ = 'Agus Makmun (Summon Agus)'
 __author_email__ = 'summon.agus@gmail.com'
 
 setup(
-    name="nicepay",
+    name='nicepay',
     packages=['nicepay'],
     version=__version__,
     platforms=['Linux'],

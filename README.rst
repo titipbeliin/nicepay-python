@@ -33,12 +33,11 @@ To run the test use:
     $ python tests.py show_print  # show the response
 
 
-.. |pypi version|
-   image:: https://img.shields.io/pypi/v/nicepay.svg
+.. |pypi version| image:: https://img.shields.io/pypi/v/nicepay.svg
    :target: https://pypi.python.org/pypi/nicepay
 
 .. |license| image:: https://img.shields.io/badge/license-MIT-green.svg
-  :target: https://raw.githubusercontent.com/titipbeliin/nicepay-python-enterprise/master/LICENSE
+   :target: https://raw.githubusercontent.com/titipbeliin/nicepay-python-enterprise/master/LICENSE
 
 .. |build status| image:: https://travis-ci.org/titipbeliin/nicepay-python-enterprise.svg?branch=master
    :target: https://travis-ci.org/titipbeliin/nicepay-python-enterprise

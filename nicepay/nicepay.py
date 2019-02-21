@@ -30,6 +30,9 @@ class NicePay(object):
     def __init__(self):
         self.merchant_token = None
 
+    def __repr__(self):
+        return '%s(merchant_token="%s")' % (self.__class__.__name__, self.merchant_token)
+
     def send(self, to_json=True, **kwargs):
         if not all([self.api_url, self.api_key, self.imid]):
             message = 'Please fill all `api_url`, `api_key` and `imid`'
