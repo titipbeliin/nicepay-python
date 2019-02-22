@@ -47,9 +47,11 @@ class NicePay(object):
         if to_json:
             response_data = response.json()
             response_data['status_code'] = response.status_code
+            response_data['merchant_token'] = kwargs.get('merchantToken')
         else:
             response_data['content'] = response.content
             response_data['status_code'] = response.status_code
+            response_data['merchant_token'] = kwargs.get('merchantToken')
         return response_data
 
     @property
