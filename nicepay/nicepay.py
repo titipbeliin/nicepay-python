@@ -43,15 +43,16 @@ class NicePay(object):
         response = requests.post(self.api_url, headers=headers,
                                  data=json.dumps(kwargs))
         response_data = {}
+        response_data['merchant_token'] = kwargs.get('merchantToken')
+        response_data['baskets'] = kwargs.get('cartData')
 
         if to_json:
             response_data = response.json()
             response_data['status_code'] = response.status_code
-            response_data['merchant_token'] = kwargs.get('merchantToken')
         else:
             response_data['content'] = response.content
             response_data['status_code'] = response.status_code
-            response_data['merchant_token'] = kwargs.get('merchantToken')
+
         return response_data
 
     @property
