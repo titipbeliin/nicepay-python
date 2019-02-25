@@ -4,14 +4,14 @@
 import sys
 import unittest
 
-from nicepay.nicepay import NicePay
+from nicepay import NicePayV2
 
 
 class NicePayV2TestCase(unittest.TestCase):
     show_print = False
 
     def setUp(self):
-        nicepay = NicePay()
+        nicepay = NicePayV2()
         nicepay.api_url = None
         nicepay.api_notification_url = 'http://127.0.0.1:8000/nicepay/test3/dbProcess.do'
         nicepay.api_key = '33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A=='

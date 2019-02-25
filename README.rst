@@ -37,7 +37,7 @@ To run the test use:
    :target: https://pypi.python.org/pypi/nicepay
 
 .. |license| image:: https://img.shields.io/badge/license-MIT-green.svg
-   :target: https://raw.githubusercontent.com/titipbeliin/nicepay-python-enterprise/master/LICENSE
+   :target: https://raw.githubusercontent.com/titipbeliin/nicepay-python/master/LICENSE
 
-.. |build status| image:: https://travis-ci.org/titipbeliin/nicepay-python-enterprise.svg?branch=master
-   :target: https://travis-ci.org/titipbeliin/nicepay-python-enterprise
+.. |build status| image:: https://travis-ci.org/titipbeliin/nicepay-python.svg?branch=master
+   :target: https://travis-ci.org/titipbeliin/nicepay-python

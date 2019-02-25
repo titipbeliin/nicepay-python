@@ -6,16 +6,14 @@ import socket
 import hashlib
 import requests
 
-
-class RequiredField(Exception):
-    pass
+from .exceptions import RequiredField
 
 
-class NicePay(object):
+class NicePayV2(object):
     """
-    Docs: https://docs.nicepay.co.id
+    Docs: https://docs.nicepay.co.id/api-v2-EN.html
 
-    nicepay = NicePay()
+    nicepay = NicePayV2()
     nicepay.api_url = 'https://docs.nicepay.co.id/foobar.egg'
     nicepay.api_notification_url = 'https://foobar.baz'
     nicepay.api_key = 'xxx-xxx-xxx'
@@ -23,6 +21,7 @@ class NicePay(object):
     nicepay.get_*stuff()
     """
     api_notification_url = ''
+    api_callback_url = ''
     api_url = None
     api_key = None
     imid = None
@@ -38,10 +37,9 @@ class NicePay(object):
             message = 'Please fill all `api_url`, `api_key` and `imid`'
             raise RequiredField(message)
 
-        headers = {'Accept': 'application/json',
-                   'Content-Type': 'application/json'}
-        response = requests.post(self.api_url, headers=headers,
-                                 data=json.dumps(kwargs))
+        headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
+        response = requests.post(self.api_url, headers=headers, data=json.dumps(kwargs))
+
         response_data = {}
         response_data['status_code'] = response.status_code
         response_data['merchant_token'] = kwargs.get('merchantToken')
