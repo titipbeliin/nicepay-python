@@ -3,6 +3,7 @@
 
 import json
 import socket
+import urllib
 import hashlib
 import requests
 
@@ -37,8 +38,9 @@ class NicePayV1(object):
             message = 'Please fill all `api_url`, `api_key` and `imid`'
             raise RequiredField(message)
 
+        params = urllib.parse.urlencode(kwargs)
         headers = {'Content-type': 'application/x-www-form-urlencoded'}
-        response = requests.post(self.api_url, headers=headers, data=kwargs)
+        response = requests.post(self.api_url, headers=headers, params=params)
 
         response_data = {}
         response_data['status_code'] = response.status_code
