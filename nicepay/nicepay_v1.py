@@ -38,18 +38,17 @@ class NicePayV1(object):
             message = 'Please fill all `api_url`, `api_key` and `imid`'
             raise RequiredField(message)
 
-        kwargs_nicepay = kwargs
-        if 'baskets' in kwargs_nicepay:
-            del kwargs_nicepay['baskets']
-
-        params = urllib.parse.urlencode(kwargs_nicepay)
-        headers = {'Content-type': 'application/x-www-form-urlencoded'}
-        response = requests.post(self.api_url, headers=headers, params=params)
-
         response_data = {}
-        response_data['status_code'] = response.status_code
         response_data['merchant_token'] = kwargs.get('merchantToken')
         response_data['baskets'] = kwargs.get('baskets')
+
+        if 'baskets' in kwargs:
+            del kwargs['baskets']
+
+        params = urllib.parse.urlencode(kwargs)
+        headers = {'Content-type': 'application/x-www-form-urlencoded'}
+        response = requests.post(self.api_url, headers=headers, params=params)
+        response_data['status_code'] = response.status_code
 
         if to_json:
             response = json.loads(response.text[4:])
