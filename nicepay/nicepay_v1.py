@@ -37,7 +37,7 @@ class NicePayV1(object):
             message = 'Please fill all `api_url`, `api_key` and `imid`'
             raise RequiredField(message)
 
-        headers = {'Accept': 'application/x-www-form-urlencoded'}
+        headers = {'Content-type': 'application/x-www-form-urlencoded'}
         response = requests.post(self.api_url, headers=headers, data=kwargs)
 
         response_data = {}
