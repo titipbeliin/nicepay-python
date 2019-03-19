@@ -19,13 +19,14 @@ class NicePayV2TestCase(unittest.TestCase):
 
         self.nicepay = nicepay
 
-        self.registration_url = 'https://api.nicepay.co.id/nicepay/direct/v2/registration'
-        self.inquiry_url = 'https://api.nicepay.co.id/nicepay/direct/v2/inquiry'
-        self.cancel_url = 'https://api.nicepay.co.id/nicepay/direct/v2/cancel'
-        self.payment_url = 'https://api.nicepay.co.id/nicepay/direct/v2/payment'
-        self.installment_url = 'https://api.nicepay.co.id/nicepay/direct/v2/instInfoInquiry'
-        self.vacct_inquiry_url = 'https://api.nicepay.co.id/nicepay/api/vacctInquiry.do'
-        self.vacct_inquiry_customer_url = 'https://api.nicepay.co.id/nicepay/api/vacctCustomerIdInquiry.do'
+        self.registration_url = 'https://dev.nicepay.co.id/nicepay/direct/v2/registration'
+        self.inquiry_url = 'https://dev.nicepay.co.id/nicepay/direct/v2/inquiry'
+        self.cancel_url = 'https://dev.nicepay.co.id/nicepay/direct/v2/cancel'
+        self.payment_url = 'https://dev.nicepay.co.id/nicepay/direct/v2/payment'
+        self.installment_url = 'https://dev.nicepay.co.id/nicepay/direct/v2/instInfoInquiry'
+        self.vacct_inquiry_url = 'https://dev.nicepay.co.id/nicepay/api/vacctInquiry.do'
+        self.vacct_inquiry_customer_url = 'https://dev.nicepay.co.id/nicepay/api/vacctCustomerIdInquiry.do'
+        self.check_status_url = 'https://dev.nicepay.co.id/nicepay/direct/v2/inquiry'
 
     def test_registration(self):
         request_data = {
@@ -134,6 +135,17 @@ class NicePayV2TestCase(unittest.TestCase):
                         'endDt': '20180111'}
         self.nicepay.api_url = self.vacct_inquiry_customer_url
         response = self.nicepay.request_vacct_inquiry_customer(**request_data)
+        if self.show_print:
+            print(response)
+        self.assertTrue(isinstance(response, dict))
+
+    def test_check_payment(self):
+        request_data = {'timeStamp': '20180109181300',
+                        'tXid': 'IONPAYTEST02201802051512483907',
+                        'referenceNo': 'ADETEST02',
+                        'amt': '10000'}
+        self.nicepay.api_url = self.check_status_url
+        response = self.nicepay.check_payment(**request_data)
         if self.show_print:
             print(response)
         self.assertTrue(isinstance(response, dict))

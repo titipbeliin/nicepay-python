@@ -253,3 +253,22 @@ class NicePayV2(object):
         request_data['merchantToken'] = token_customer
 
         return self.send(**request_data)
+
+    def check_payment(self, **kwargs):
+        """
+        request_data = {'timeStamp': '20180109181300',
+                        'tXid': 'IONPAYTEST02201802051512483907',
+                        'referenceNo': 'ADETEST02',
+                        'amt': '10000'}
+        nicepay.check_payment(**request_data)
+        """
+        required_fields = ['timeStamp', 'tXid', 'referenceNo', 'amt']
+        exist_fields = kwargs.keys()
+        self.check_required_fields(required_fields, exist_fields)
+
+        request_data = {}
+        request_data.update(**kwargs)
+        request_data['iMid'] = self.imid
+        request_data['merchantToken'] = self.get_merchant_token(**request_data)
+
+        return self.send(**request_data)
