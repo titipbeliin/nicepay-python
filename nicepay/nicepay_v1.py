@@ -104,6 +104,9 @@ class NicePayV1(object):
                            'referenceNo',  'goodsNm', 'billingNm', 'billingPhone',
                            'billingEmail', 'billingCity',  'billingState', 'billingPostCd',
                            'billingCountry', 'description', 'cartData']
+        exist_fields = kwargs.keys()
+        self.check_required_fields(required_fields, exist_fields)
+
         request_data = {}
         request_data.update(**kwargs)
         request_data['iMid'] = self.imid
@@ -114,5 +117,27 @@ class NicePayV1(object):
         request_data['dbProcessUrl'] = self.api_notification_url
         request_data['merchantToken'] = self.get_merchant_token(**request_data)
         request_data['userIP'] = kwargs.get('userIP') or self.get_client_ip
+
+        return self.send(**request_data)
+
+    def check_payment(self, **kwargs):
+        """
+        https://docs.nicepay.co.id/api-v1-EN.html#check-transaction-status
+
+        request_data = {
+            'tXid': 'IONPAYTEST02201609161449136760',
+            'amt': '10000',
+            'referenceNo': 'IV02318',
+        }
+        nicepay.check_payment(**request_data)
+        """
+        required_fields = ['tXid', 'amt', 'referenceNo']
+        exist_fields = kwargs.keys()
+        self.check_required_fields(required_fields, exist_fields)
+
+        request_data = {}
+        request_data.update(**kwargs)
+        request_data['iMid'] = self.imid
+        request_data['merchantToken'] = self.get_merchant_token(**request_data)
 
         return self.send(**request_data)
