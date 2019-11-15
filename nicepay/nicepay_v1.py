@@ -51,7 +51,7 @@ class NicePayV1(object):
         response_data['status_code'] = response.status_code
 
         if to_json:
-            response = json.loads(response.text[4:])
+            response = json.loads(response.text)
             response_data.update(**response)
         else:
             response_data['content'] = response.content
