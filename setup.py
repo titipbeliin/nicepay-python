@@ -4,7 +4,7 @@
 import os
 from setuptools import setup
 
-__version__ = '1.1.7'
+__version__ = '1.1.8'
 __author__ = 'Agus Makmun (Summon Agus)'
 __author_email__ = 'summon.agus@gmail.com'
 
